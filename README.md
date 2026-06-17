@@ -46,9 +46,15 @@ cp profile.example.md profile.md
 
 ## 之后每次：只丢一个链接
 
-在你的 AI agent 里直接说：
+**最稳的方式是显式调用**——在 Claude Code 里敲 `/taoci-letter`，或直接说"用 taoci-letter skill 帮我写"，然后带上导师链接：
+
+> /taoci-letter 帮我给这位老师写套磁信：https://example.edu/~prof
+
+也可以直接描述需求让它自动触发：
 
 > 帮我给这位老师写套磁信：https://example.edu/~prof
+
+> 提示：skill 能否自动触发由 AI 自行判断，不是 100% 保证。如果它没用上本 skill（比如直接自己写了、没按七段结构），用上面的显式调用方式最可靠。
 
 skill 会自动读 `profile.md` 里的背景，抓导师主页，找出真实匹配点（会先列给你确认），再按七段结构出信。想临时换个突出方向，对话里直接说就行。
 
