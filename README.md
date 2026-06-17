@@ -1,25 +1,43 @@
 # taoci-letter · 保研/申研套磁信生成器
 
-一个 [Claude Code](https://claude.com/claude-code) skill。给出导师主页链接 + 你的背景，自动抓取导师研究方向与近期论文，按「标准七段结构 + 真诚/切题/潜力」的模式写一封个性化套磁信。
+一个基于开放 [Agent Skills](https://github.com/vercel-labs/skills) 协议的 skill，可在 Claude Code、Codex、Cursor、Gemini CLI 等 50+ AI agent 中使用。给出导师主页链接 + 你的背景，自动抓取导师研究方向与近期论文，按「标准七段结构 + 真诚/切题/潜力」的模式写一封个性化套磁信。
 
 不是为了写一封"语法正确、格式漂亮"的信——那种 AI 分分钟能套出来，导师早就看腻了。目标是让导师看到邮件背后那个真实、有判断力的人。
 
 ## 安装
 
-把这个 skill 放到 Claude 的 skills 目录下即可（个人全局生效）：
+### 方式一：一行命令（推荐，跨 agent 通用）
 
 ```bash
-git clone https://github.com/<your-name>/taoci-letter.git ~/.claude/skills/taoci-letter
+npx skills add jielosc/taoci-letter
 ```
 
-或者下载 zip，解压后整个文件夹放进 `~/.claude/skills/`。
+它会自动识别你正在用的 agent，把 skill 装到对应目录，只放 skill 本体，不会把 README 等文件塞进来。也可以用 `-a` 指定目标，如 `-a claude-code`、`-a codex`、`-a cursor`。
+
+### 方式二：手动安装
+
+clone 到对应 agent 的 skills 目录：
+
+| Agent | 路径 |
+|---|---|
+| Claude Code | `~/.claude/skills/taoci-letter/` |
+| Codex CLI | `~/.codex/skills/taoci-letter/` |
+| Cursor | `~/.cursor/skills/taoci-letter/` |
+
+```bash
+git clone https://github.com/jielosc/taoci-letter.git ~/.claude/skills/taoci-letter
+```
+
+### 方式三：当参考资料直接用
+
+把 `SKILL.md` 的内容整段贴进对话即可——它本质上就是 markdown + YAML。
 
 ## 第一次使用：填一次背景
 
 把示例模板复制成自己的 profile，填上真实背景：
 
 ```bash
-cd ~/.claude/skills/taoci-letter
+cd ~/.claude/skills/taoci-letter   # 或你的 agent 对应目录
 cp profile.example.md profile.md
 # 然后用编辑器打开 profile.md，按提示填好
 ```
@@ -28,7 +46,7 @@ cp profile.example.md profile.md
 
 ## 之后每次：只丢一个链接
 
-在 Claude Code 里直接说：
+在你的 AI agent 里直接说：
 
 > 帮我给这位老师写套磁信：https://example.edu/~prof
 
