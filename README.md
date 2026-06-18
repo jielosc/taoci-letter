@@ -62,7 +62,6 @@ taoci-letter/
   profile.example.md    # 背景模板（复制成 profile.md 填写）
   references/
     structure.md        # 标准七段：主题→称呼→背景→契合度→实力→行动→落款
-    checklist.md        # 生成后自检：格式 + top 平台加分项
 ```
 
 ## 写作理念
