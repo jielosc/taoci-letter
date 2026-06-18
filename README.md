@@ -28,10 +28,6 @@ clone 到对应 agent 的 skills 目录：
 git clone https://github.com/jielosc/taoci-letter.git ~/.claude/skills/taoci-letter
 ```
 
-### 方式三：当参考资料直接用
-
-把 `SKILL.md` 的内容整段贴进对话即可——它本质上就是 markdown + YAML。
-
 ## 第一次使用：填一次背景
 
 把示例模板复制成自己的 profile，填上真实背景：
